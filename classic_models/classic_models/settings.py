@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'classic_models.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'mysql.connector.django',
         'NAME': os.environ["MYSQL_DATABASE"],
         'USER': os.environ["MYSQLUSER"],
         'PASSWORD': os.environ["MYSQL_ROOT_PASSWORD"],
