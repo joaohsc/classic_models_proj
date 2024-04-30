@@ -1,6 +1,5 @@
 # projeto
-.env
-db_password.txt
+classic_model_venv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
