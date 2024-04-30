@@ -12,16 +12,20 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 import os
 
+from dotenv import load_dotenv
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv(os.path.join(BASE_DIR, ".env"))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ["SECRET_KEY"]
+#SECRET_KEY = os.environ["SECRET_KEY"]
+os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -86,11 +90,16 @@ WSGI_APPLICATION = 'classic_models.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mysql.connector.django',
-        'NAME': os.environ["MYSQL_DATABASE"],
-        'USER': os.environ["MYSQLUSER"],
-        'PASSWORD': os.environ["MYSQL_ROOT_PASSWORD"],
-        'HOST': os.environ["MYSQLHOST"],
-        'PORT': os.environ["MYSQLPORT"],
+        #'NAME': os.environ["MYSQL_DATABASE"],
+        #'USER': os.environ["MYSQLUSER"],
+        #'PASSWORD': os.environ["MYSQL_ROOT_PASSWORD"],
+        #'HOST': os.environ["MYSQLHOST"],
+        #'PORT': os.environ["MYSQLPORT"],
+        'NAME': os.getenv("MYSQL_DATABASE"),
+        'USER': os.getenv("MYSQLUSER"),
+        'PASSWORD': os.getenv("MYSQL_ROOT_PASSWORD"),
+        'HOST': os.getenv("MYSQLHOST"),
+        'PORT': os.getenv("MYSQLPORT"),
     }
 }
 
