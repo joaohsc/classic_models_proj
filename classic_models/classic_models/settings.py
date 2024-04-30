@@ -75,8 +75,9 @@ WSGI_APPLICATION = 'classic_models.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-with open(f'{BASE_DIR}/db_password.txt') as f:
-    DB_PASSWORD = f.read().strip()
+# local
+#with open(f'{BASE_DIR}/db_password.txt') as f:
+#    DB_PASSWORD = f.read().strip()
 
 DATABASES = {
     'default': {
