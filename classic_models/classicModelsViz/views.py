@@ -9,8 +9,6 @@ def index(request):
     products_count = Products.objects.all().count()
     orders_count = Orders.objects.all().count()
 
-    print(customers_count)
-
     context ={
         'customers_count': customers_count,
         'employees_count': employees_count,
