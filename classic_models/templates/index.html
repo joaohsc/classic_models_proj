@@ -1,14 +1,35 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home page</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
 </head>
 <body>
     <h1>Lista de clientes</h1>
-    {% for customer in customers %}
-        <p>{{ customer.customername }}</p>
-    {% endfor %}
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <th scope="col">Customer Number</th>
+              <th scope="col">Customer Name</th>
+              <th scope="col">Sales Employee Number</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for customer in customers %}
+            <tr>
+                <td>{{ customer.customernumber }}</td>
+                <td>{{ customer.customername }}</td>
+                <td>{{ customer.salesrepemployeenumber }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        
+    </table>
+    
 </body>
 </html>
