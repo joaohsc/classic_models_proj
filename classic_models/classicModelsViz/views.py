@@ -4,6 +4,7 @@ from .models import *
 
 def index(request):
     customers = Customers.objects.all()
+    
     context ={
         'customers':customers,
     }
