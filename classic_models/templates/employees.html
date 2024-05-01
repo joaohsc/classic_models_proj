@@ -1,0 +1,51 @@
+{% extends 'shared.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h1>Lista de Empregados</h1>
+</div>
+
+<div class="container text-center">
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">Employee Number</th>
+            <th scope="col">Email</th>
+            <th scope="col">Office Code</th>
+            <th scope="col">Job Title</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for employee in page_obj %}
+            <tr>
+                <td>{{ employee.employeenumber }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.officecode }}</td>
+                <td>{{ employee.jobtitle }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        
+    </table>
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; Primeiro</a>
+                <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">Próximo</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">Último &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+    
+{% endblock %}
