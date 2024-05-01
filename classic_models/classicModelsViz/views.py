@@ -27,7 +27,7 @@ def customers(request):
     context ={
         'page_obj': page_obj,
     }
-    return render(request, 'index.html', context)
+    return render(request, 'customers.html', context)
 
 def employees(request):
     employees = Employees.objects.all().order_by('employeenumber')
