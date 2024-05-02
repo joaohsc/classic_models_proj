@@ -29,12 +29,10 @@ load_dotenv(find_dotenv())
 #SECRET_KEY = os.environ["SECRET_KEY"]
 SECRET_KEY = os.getenv("SECRET_KEY")
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['www.classicmodelsproj-production.up.railway.app']
-
+ALLOWED_HOSTS = ['classicmodelsproj-production.up.railway.app']
 
 # Application definition
 
@@ -59,6 +57,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CSRF_TRUSTED_ORIGINS = ['https://classicmodelsproj-production.up.railway.app']
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
